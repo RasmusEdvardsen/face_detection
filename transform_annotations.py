@@ -13,20 +13,20 @@ columns = ['id', 'confidence', 'xmin', 'ymin', 'xmax', 'ymax']
 df = pd.DataFrame(columns=columns)
 df = df.set_index('id')
 
-path = 'annotations'
-files = [f for f in listdir(path) if isfile(join(path, f))]
+raw_path = 'annotations\\raw'
+transformed_path = 'annotations\\transformed'
+files = [f for f in listdir(raw_path) if isfile(join(raw_path, f))]
 
-for annotations in files:
-    tree = etree.parse(join(path, annotations))
+for i, annotations in enumerate(files):
+    print(i, join(raw_path, annotations))
+    tree = etree.parse(join(raw_path, annotations))
     node = tree.getroot()
     faces = node.findall('object')
     if len(faces) == 1:
         annotation = faces[0]
         bbox = annotation.find('bndbox')
-        # might need column specification
         data_row = [annotations, 1, bbox.find('xmin').text, bbox.find('ymin').text, bbox.find('xmax').text, bbox.find('ymax').text]
         a_row = pd.DataFrame([data_row], columns=columns)
         a_row = a_row.set_index('id')
         df = pd.concat([df, a_row])
-        print(df)
-df.to_csv('annotations_transformed.csv')
+df.to_csv(join(transformed_path, 'annotations_transformed.csv'))
