@@ -1,7 +1,6 @@
 # Face Detection
 
 ## TODO
-* normalization
 * train model and save
 * load model and predict
 
