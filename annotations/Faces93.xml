@@ -1,0 +1,37 @@
+
+<annotation>
+    <folder>images</folder>
+    <filename>Faces93.png</filename>
+    <size>
+        <width>449</width>
+        <height>319</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Face</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>56</xmin>
+            <ymin>105</ymin>
+            <xmax>197</xmax>
+            <ymax>260</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Face</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>258</xmin>
+            <ymin>121</ymin>
+            <xmax>380</xmax>
+            <ymax>254</ymax>
+        </bndbox>
+    </object>
+</annotation>

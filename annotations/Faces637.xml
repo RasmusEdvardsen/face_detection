@@ -1,0 +1,37 @@
+
+<annotation>
+    <folder>images</folder>
+    <filename>Faces637.png</filename>
+    <size>
+        <width>257</width>
+        <height>450</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Face</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>102</xmin>
+            <ymin>168</ymin>
+            <xmax>179</xmax>
+            <ymax>252</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Face</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>71</xmin>
+            <ymin>41</ymin>
+            <xmax>123</xmax>
+            <ymax>123</ymax>
+        </bndbox>
+    </object>
+</annotation>

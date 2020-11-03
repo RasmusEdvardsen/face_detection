@@ -1,0 +1,24 @@
+
+<annotation>
+    <folder>images</folder>
+    <filename>Faces501.png</filename>
+    <size>
+        <width>449</width>
+        <height>299</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Face</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>188</xmin>
+            <ymin>62</ymin>
+            <xmax>287</xmax>
+            <ymax>167</ymax>
+        </bndbox>
+    </object>
+</annotation>

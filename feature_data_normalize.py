@@ -1,0 +1,1 @@
+# resize image to some size, then resize bboxes with same ratio
