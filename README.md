@@ -1,6 +1,7 @@
 # Face Detection
 
 ## TODO
+* use part of mnist image dataset with current dataset
 * TRY WITH MNIST IMAGE DATASET
 * train model and save
 * load model and predict
