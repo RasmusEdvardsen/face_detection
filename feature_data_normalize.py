@@ -6,9 +6,6 @@ path = 'images\\raw\\'
 
 df = pd.read_csv('annotations\\transformed\\annotations_transformed.csv')
 
-# TODO 300x300 or less
-# TODO look at image general sizes
-
 for index, row in df.iterrows():
     name = row['id'].split('.')[0] + '.png'
 
