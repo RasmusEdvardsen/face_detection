@@ -4,3 +4,5 @@ Keras
 pandas
 Pillow
 sklearn
+opencv-python
+matplotlib

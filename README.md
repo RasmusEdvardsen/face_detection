@@ -1,7 +1,7 @@
 # Face Detection
 
 ## TODO
-* train model and save
+* sliding window
 * load model and predict
 * data augmentation
 * look at image size transformations (higher or lower www x hhh)
@@ -9,10 +9,14 @@
 * support black/white images
 
 ## Usages
-https://datasetsearch.research.google.com/
+* https://datasetsearch.research.google.com/
+* https://github.com/zarif101/rcnn_keras_license_plate
+
+### Tensorboard
+python C:\Users\rasmu\AppData\Roaming\Python\Python38\site-packages\tensorboard\main.py --logdir=logs
 
 ## Citations
-**selective** search segmentation: (as opposed to **sliding windows**)
+* **selective** search segmentation: (as opposed to **sliding windows**)
 http://vision.stanford.edu/teaching/cs231b_spring1415/slides/ssearch_schuyler.pdf
 
 ## Dataset Origin

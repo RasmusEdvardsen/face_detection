@@ -1,11 +1,13 @@
+import numpy
+import numpy as np
+import pandas as pd
+import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Conv2D,MaxPool2D,Dropout,Flatten,Dense
-import numpy
-from os import listdir
-import numpy as np
+from keras.callbacks import TensorBoard
 from utils import img_to_mat
 from sklearn.model_selection import train_test_split
-import pandas as pd
+from os import listdir
 
 batch_size = 32
 epochs = 6
@@ -47,11 +49,9 @@ y_2 = np.full(X_2.shape[0], 0)
 X = np.append(X_1, X_2, axis=0)
 y = np.append(y_1, y_2, axis=0)
 
-print(X.shape, y.shape)
-
 # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
-model.fit(X, y, batch_size=batch_size, epochs=epochs, validation_split=0.3)
-
-model.save('/models/base_model_v1.h5')
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs", update_freq="batch")
+model.fit(X, y, batch_size=batch_size, epochs=epochs, validation_split=0.3, callbacks=[tensorboard_callback])
+model.save('/models/base_model_v2.h5')
 # model evaluate
