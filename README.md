@@ -8,6 +8,13 @@
 * normalization of rgb
 * support black/white images
 
+## Usages
+https://datasetsearch.research.google.com/
+
+## Citations
+**selective** search segmentation: (as opposed to **sliding windows**)
+http://vision.stanford.edu/teaching/cs231b_spring1415/slides/ssearch_schuyler.pdf
+
 ## Dataset Origin
 * mnist
 * (found in search on) https://datasetsearch.research.google.com/search?query=object%20detection%20face&docid=AIe%2FEvYJ5YTrhEt9AAAAAA%3D%3D
