@@ -13,8 +13,8 @@ columns = ['id', 'confidence', 'xmin', 'ymin', 'xmax', 'ymax']
 df = pd.DataFrame(columns=columns)
 df = df.set_index('id')
 
-raw_path = 'annotations\\raw'
-transformed_path = 'annotations\\transformed'
+raw_path = 'annotations\\makeml\\raw'
+transformed_path = 'annotations\\makeml\\transformed'
 files = [f for f in listdir(raw_path) if isfile(join(raw_path, f))]
 
 for i, annotations in enumerate(files):
