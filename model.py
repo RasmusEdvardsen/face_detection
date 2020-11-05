@@ -26,7 +26,7 @@ def model(input_shape, num_classes):
     model.summary()
     return model
 
-model = model((32, 32, 3), 1)
+model = model((32, 32, 3), 2)
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 img_path = 'images\\makeml\\normalized\\'
@@ -37,21 +37,27 @@ y = pd.read_csv(label_path + 'annotations_transformed_normalized.csv')
 # y = y.set_index('id')
 y = y['confidence']
 
-# (x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
-# x_train = x_train[0:50000]
-# y_train = y_train[0:50000]
-# y_train[:,] = 0
-# x_test = x_test[0:50000]
-# y_test = y_test[0:50000]
-# y_test[:,] = 0
+print(X.shape, y.shape)
 
-# print(X.shape, x_train.shape, x_test.shape)
-# X = np.append(X, x_train, axis=0)
-# X = np.append(X, x_test, axis=0)
-# print(X.shape)
+(x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
+x_train = x_train[0:500]
+y_train = y_train[0:500]
+y_train[:,] = 0
+x_test = x_test[0:500]
+y_test = y_test[0:500]
+y_test[:,] = 0
 
-# y = y.append(pd.DataFrame(y_train))
-# y = y.append(pd.DataFrame(y_test))
+print(x_train.shape, y_train.shape)
+
+X = np.append(X, x_train, axis=0)
+X = np.append(X, x_test, axis=0)
+
+y = y.append(pd.DataFrame(y_train))
+y = y.append(pd.DataFrame(y_test))
+
+y = keras.utils.to_categorical(y, 2)
+
+print(X.shape, y.shape)
 
 # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
