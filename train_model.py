@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from os import listdir
 
 batch_size = 32
-epochs = 6
+epochs = 10
 
 def model(input_shape, num_classes):
     model = Sequential()
@@ -53,5 +53,5 @@ y = np.append(y_1, y_2, axis=0)
 
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs", update_freq="batch")
 model.fit(X, y, batch_size=batch_size, epochs=epochs, validation_split=0.3, callbacks=[tensorboard_callback])
-model.save('/models/base_model_v2.h5')
+model.save('models/base_model_v1.h5')
 # model evaluate
