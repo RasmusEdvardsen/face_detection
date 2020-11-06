@@ -30,6 +30,8 @@ def model(input_shape, num_classes):
 
     model.add(Dense(128,activation='relu'))
     model.add(Dense(64,activation='relu'))
+
+    # Only use dropout when train acc/loss is much better than val acc/loss
     model.add(Dropout(rate=0.35))
     model.add(Dense(num_classes,activation='sigmoid'))
 
@@ -49,9 +51,10 @@ y_2 = np.full(X_2.shape[0], 0)
 X = np.append(X_1, X_2, axis=0)
 y = np.append(y_1, y_2, axis=0)
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+# important to do this, model.fit won't shuffle randomly
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs", update_freq="batch")
-model.fit(X, y, batch_size=batch_size, epochs=epochs, validation_split=0.3, callbacks=[tensorboard_callback])
-model.save('models/base_model_v1.h5')
+model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test, y_test), callbacks=[tensorboard_callback])
+model.save('models/base_model_v3_dropout.h5')
 # model evaluate
