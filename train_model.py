@@ -32,7 +32,10 @@ def model(input_shape, num_classes):
     model.add(Dense(64,activation='relu'))
 
     # Only use dropout when train acc/loss is much better than val acc/loss
-    model.add(Dropout(rate=0.35))
+    # When training, a percentage of the features are set to zero 
+    # When testing, all features are used (and are scaled appropriately). 
+    # So the model at test time is more robust - and can lead to higher testing accuracies.
+    # model.add(Dropout(rate=0.35))
     model.add(Dense(num_classes,activation='sigmoid'))
 
     return model
@@ -56,5 +59,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs", update_freq="batch")
 model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test, y_test), callbacks=[tensorboard_callback])
-model.save('models/base_model_v3_dropout.h5')
+model.save('models/base_model_v5.h5')
 # model evaluate
+
+# Note:
+# Keras means the train acc/loss of all batches per epoch.
+# val acc/loss is therefore higher than reported train acc/loss
