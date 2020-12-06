@@ -3,6 +3,7 @@
 ## TODO
 * sliding window
 * load model and predict
+* support multiple directories for inputs
 * data augmentation
 * look at image size transformations (higher or lower www x hhh)
 * support black/white images
