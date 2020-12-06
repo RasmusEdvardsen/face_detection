@@ -1,13 +1,18 @@
 # Face Detection
 
 ## TODO
-* images with matrix and niclas and fun stuff
+* fix demo stuff
+* have base_model be default model to load/save
+* positive and negative predictions, images with matrix and niclas and fun stuff
 * sliding window (and visual)
-* load model and predict
+
+
+
 * support multiple directories for inputs
 * data augmentation
 * look at image size transformations (higher or lower www x hhh)
 * support black/white images
+* use keras preprocessing
 
 ## Usages
 * https://datasetsearch.research.google.com/
