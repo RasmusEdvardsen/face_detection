@@ -1,7 +1,8 @@
 # Face Detection
 
 ## TODO
-* sliding window
+* images with matrix and niclas and fun stuff
+* sliding window (and visual)
 * load model and predict
 * support multiple directories for inputs
 * data augmentation
