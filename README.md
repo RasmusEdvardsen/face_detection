@@ -13,7 +13,7 @@
 * https://github.com/zarif101/rcnn_keras_license_plate
 
 ### Tensorboard
-python C:\Users\rasmu\AppData\Roaming\Python\Python38\site-packages\tensorboard\main.py --logdir=logs
+python C:\Users\rasmus.edvardsen\AppData\Roaming\Python\Python38\site-packages\tensorboard\main.py --logdir=logs
 
 ## Citations
 * **selective** search segmentation: (as opposed to **sliding windows**)
