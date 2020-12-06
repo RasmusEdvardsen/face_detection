@@ -2,8 +2,15 @@
 
 logs/*
 !logs/*.md
-# annotations/
-models/*.h5
+
+annotations/*
+!annotations/*.md
+
+models/*
+!models/*.md
+
+images/*
+!images/*.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
