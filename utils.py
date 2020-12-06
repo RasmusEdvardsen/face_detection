@@ -2,9 +2,10 @@ from PIL import Image
 from numpy import asarray
 from tensorflow import keras
 
-# todo reshape to width, height
+WIDTH_HEIGHT = (300, 200)
+global WIDTH_HEIGHT
+
 def img_to_mat(path, w_h=None):
     image = Image.open(path).convert('RGB')
-    if w_h:
-        image = image.resize(w_h)
+    image = image.resize(w_h if w_h is not None else WIDTH_HEIGHT)
     return asarray(image)

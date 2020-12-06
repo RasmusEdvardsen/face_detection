@@ -3,7 +3,6 @@
 ## TODO
 * sliding window
 * load model and predict
-* feature normalization
 * data augmentation
 * look at image size transformations (higher or lower www x hhh)
 * support black/white images

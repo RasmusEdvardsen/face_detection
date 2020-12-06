@@ -3,8 +3,8 @@
 logs/*
 !logs/*.md
 
-annotations/*
-!annotations/*.md
+demo/annotations/*
+!demo/annotations/*.md
 
 models/*
 !models/*.md
