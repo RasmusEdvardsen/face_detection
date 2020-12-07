@@ -1,6 +1,7 @@
 # Face Detection
 
 ## TODO
+
 * fix demo stuff
 * have base_model be default model to load/save
 * positive and negative predictions, images with matrix and niclas and fun stuff
@@ -8,6 +9,7 @@
 
 
 
+* rename repo to object_detection
 * support multiple directories for inputs
 * data augmentation
 * look at image size transformations (higher or lower www x hhh)
