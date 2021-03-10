@@ -18,8 +18,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     # Get data
-    (X_1, y_1) = get_data_from_directory(args.positives_path)
-    (X_2, y_2) = get_data_from_directory(args.negatives_path)
+    (X_1, y_1) = get_data_from_directory(args.positives_path, 1)
+    (X_2, y_2) = get_data_from_directory(args.negatives_path, 0)
     X = np.append(X_1, X_2, axis=0)
     y = np.append(y_1, y_2, axis=0)
 

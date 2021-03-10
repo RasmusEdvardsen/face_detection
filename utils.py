@@ -10,12 +10,12 @@ def img_to_mat(path_or_stream, w_h=None):
     image = image.resize(w_h if w_h is not None else WIDTH_HEIGHT)
     return np.asarray(image)
 
-def get_data_from_directory(path):
+def get_data_from_directory(path, label):
     X_1 = np.array([img_to_mat((path + i), (300, 200)) for i in listdir(path)], ndmin=4)
-    y_1 = np.full(X_1.shape[0], 1)
+    y_1 = np.full(X_1.shape[0], label)
     return (X_1, y_1)
 
-def get_data_from_list(images):
+def get_data_from_list(images, label):
     X_1 = np.array([img_to_mat((i), (300, 200)) for i in images], ndmin=4)
-    y_1 = np.full(X_1.shape[0], 1)
+    y_1 = np.full(X_1.shape[0], label)
     return (X_1, y_1)
