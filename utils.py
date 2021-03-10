@@ -14,3 +14,8 @@ def get_data_from_directory(path):
     X_1 = np.array([img_to_mat((path + i), (300, 200)) for i in listdir(path)], ndmin=4)
     y_1 = np.full(X_1.shape[0], 1)
     return (X_1, y_1)
+
+def get_data_from_list(images):
+    X_1 = np.array([img_to_mat((i), (300, 200)) for i in images], ndmin=4)
+    y_1 = np.full(X_1.shape[0], 1)
+    return (X_1, y_1)
