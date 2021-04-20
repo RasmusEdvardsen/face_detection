@@ -1,25 +1,20 @@
-import argparse
 import numpy as np
-import tensorflow as tf
-from model import model
-from keras.callbacks import TensorBoard
-from utils import img_to_mat, get_data_from_directory
-from sklearn.model_selection import train_test_split
 from glob import glob
+from model import model
+from utils import get_data_from_list
+from sklearn.model_selection import train_test_split
 
-batch_size=128
-epochs=1
+import wandb
+from wandb.keras import WandbCallback
+wandb.init(project="tech-talk")
+
+batch_size=32
+epochs=3
 
 if __name__ == '__main__':
-    # Get args
-    parser = argparse.ArgumentParser(description='Train model.')
-    parser.add_argument('--positives_path', type=str, help='input path(s) for positive images', required=True)
-    parser.add_argument('--negatives_path', type=str, help='input path(s) for negative images', required=True)
-    args = parser.parse_args()
-    
     # Get data
-    (X_1, y_1) = get_data_from_directory(args.positives_path, 1)
-    (X_2, y_2) = get_data_from_directory(args.negatives_path, 0)
+    (X_1, y_1) = get_data_from_list(glob('images/positive/*'), 1)
+    (X_2, y_2) = get_data_from_list(glob('images/negative/**/*.*'), 0)
     X = np.append(X_1, X_2, axis=0)
     y = np.append(y_1, y_2, axis=0)
 
@@ -30,10 +25,8 @@ if __name__ == '__main__':
     model = model((200, 300, 3), 1)
     model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-    # Add metrics callback, train model and save on complete
-    tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs", update_freq="batch")
-    model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val), callbacks=[tensorboard_callback])
-    model.save('models/base_model_v9_dropout.h5')
+    model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val), callbacks=[WandbCallback(log_batch_frequency=10)])
+    model.save('models/base_model_v13_dropout.h5')
     
     # Note:
     # Keras aggregates the train acc/loss of all batches per epoch.
