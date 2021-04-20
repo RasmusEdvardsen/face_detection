@@ -26,7 +26,7 @@ if __name__ == '__main__':
     model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
     model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val), callbacks=[WandbCallback(log_batch_frequency=10)])
-    model.save('models/base_model_v13_dropout.h5')
+    model.save('models/base_model_v13.h5')
     
     # Note:
     # Keras aggregates the train acc/loss of all batches per epoch.
