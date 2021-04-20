@@ -8,12 +8,7 @@ def model(input_shape, num_classes):
     model.add(MaxPool2D(pool_size=(2,2)))
     model.add(Conv2D(filters=64,kernel_size=(3,3),activation='relu'))
     model.add(MaxPool2D(pool_size=(2,2)))
-
     model.add(Flatten())
-
-    # Only use dropout when train acc/loss is much better than val acc/loss
-    # When testing, all features are used (and are scaled appropriately). 
-    # So the model at test time is more robust - and can lead to higher testing accuracies.
     model.add(Dropout(rate=0.5))
     model.add(Dense(num_classes,activation='sigmoid'))
 
