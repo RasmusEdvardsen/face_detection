@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 PORT = os.getenv("PORT", "8090")
-MODEL_PATH = os.getenv("MODEL_PATH", "/home/red/code/face_detection/models/base_model_v6.h5")
+MODEL_PATH = os.getenv("MODEL_PATH", "./models/base_model.h5")
 print ('Will listen on port:', PORT, '\nAnd load model at path:', MODEL_PATH)
 
 global model
